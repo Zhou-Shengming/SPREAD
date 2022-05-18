@@ -18,8 +18,8 @@ We use 'N' to represent the absence in the sequences.
 # Usage
 ## parameters
 
-- '--input'   query sequences to be predicted in fasta format.
-- '--output'  save the prediction results.The default value is 'output.txt'.
+'--input'   query sequences to be predicted in fasta format.
+'--output'  save the prediction results.The default value is 'output.txt'.
 
 ## example
 ```
