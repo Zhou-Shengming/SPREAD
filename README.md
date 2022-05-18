@@ -16,6 +16,7 @@ We use 'N' to represent the absence in the sequences.
 - tensorflow==2.3.0
 
 # Usage
+## parameters
 
 - '--input'   query sequences to be predicted in fasta format.
 - '--output'  save the prediction results.The default value is 'output.txt'.
