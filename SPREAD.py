@@ -124,7 +124,7 @@ def main():
         for i in range(len(seq_id)):
             f.write(seq_id[i] + '\n')
             f.write(str(labels[i]) + '\n')
-    print('output are saved in ' + outputfile + ', and those identified as promoters are marked with *')
+    print('output are saved in ' + outputfile')
 
 
 if __name__ == "__main__":
