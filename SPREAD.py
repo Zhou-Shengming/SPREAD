@@ -95,8 +95,8 @@ def main():
         zeros = np.zeros((Data_shape[0], Data_shape[1], 1))
         Data = np.concatenate((Data, zeros), axis=2)
 
-    model_1 = load_model('model/lstm_autoencoder_16.h5')
-    model_2 = load_model('model/lstm_autoencoder_512.h5')
+    model_1 = load_model('model/lstm_autoencoder_32.h5')
+    model_2 = load_model('model/lstm_autoencoder_256.h5')
 
     latent_vector_model_1 = Model(inputs=model_1.input, outputs=model_1.get_layer('lstm_1').output)
     latent_vector_model_2 = Model(inputs=model_2.input, outputs=model_2.get_layer('lstm_1').output)
@@ -105,13 +105,13 @@ def main():
     x_2 = latent_vector_model_2.predict(Data)
     x_2 = x_2[:,80,:]
 
-    cnn = load_model('model/cnn_fold_10-16.h5')
+    cnn = load_model('model/cnn_fold_10-32.h5')
 
     y_predict = cnn.predict(x_1)
     sdata = y_predict.shape
     y_predict1 = np.reshape(y_predict, [sdata[0]])
 
-    RF = joblib.load('model/rf_fold_10-512.m')
+    RF = joblib.load('model/rf_fold_10-256.m')
 
     y_predict2 = RF.predict_proba(x_2)
     y_predict2 = y_predict2[:, 1]
